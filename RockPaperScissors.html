@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Rock Paper Scissors</title>
+    <style>
+        input {
+            font-size: 2em;
+            margin: 10px 1px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*
+        step 2:
+        Create a function to get ComputerChoice. 
+        What will the computer choose: Rock, Paper or Scissors
+        Use Math.random to generate a number greater than mix 
+        and less than max. Associate a number with one of the choices.
+
+        */
+        // Write a function named ComputerChoice no arguments
+        function ComputerChoice() {
+            // declare variable x
+            let x = 0;
+            // declare variable choice
+            let choice;
+            // assign random value between 0 and 2 to x
+            x = Math.floor(Math.random() * 3);
+            // if x is 0 then set choice to Rock
+            // return choice
+            if (x === 0) {
+                choice = "rock";
+                return choice;
+            }
+            // else if x is 1 set choice to Paper
+            // return choice
+            else if (x === 1) {
+                choice = "paper";
+                return choice;
+            }
+            // else if x is 2 set choice is scissors
+            // return choice
+            else if (x === 2) {
+                choice = "Scissor";
+                return choice;
+            }
+        }
+        console.log(ComputerChoice());
+        /*
+        step 3:
+        Will create a 2nd function named getHumanchoice which will
+        get the choice of "Rock, Paper or Scissors" from the user.
+        To do this we need to ask the user for their choice
+        through popup from console or web browser. Will
+        store their choice in some variable called humChoice
+        Must make sure what the user typed in was a valid 
+        choice i.e rock paper or scissors. Error returned
+        if neither.
+        */
+        //create function called getHumanChoice no arguments
+        function getHumanChoice() {
+
+
+            //declare variable humChoice
+            let humChoice;
+            //declare variable message: Asks user for R,P or S
+            let message = "Choose Rock, Paper, or Scissor";
+            //use prompt method to ask user input.
+            //store user input to humChoice
+            humChoice = prompt(message);
+            //print humChoice cnontents to console if valid ans
+            if(humChoice === "Rock" || humChoice === "Paper"
+                || humChoice === "Scissor"){
+                    console.log(humChoice);
+            }
+            else{
+                console.log("Invalid Choice");
+            }
+        }
+        getHumanChoice();
+        /*
+        step 4:
+        create 2 variables one called humanScore and the other
+        called computerScore. Must be declared outside of all
+        functions so that it may be used throughout code.
+        Initialize both variables to 0
+        */
+       let humanScore = 0;
+       let computerScore = 0;
+       /*
+        step 5:
+        
+        */
+    </script>
+</body>
