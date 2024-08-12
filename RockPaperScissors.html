@@ -24,7 +24,7 @@
 
         */
         // Write a function named ComputerChoice no arguments
-        function ComputerChoice() {
+        function getcomputerChoice() {
             // declare variable x
             let x = 0;
             // declare variable choice
@@ -34,23 +34,23 @@
             // if x is 0 then set choice to Rock
             // return choice
             if (x === 0) {
-                choice = "rock";
+                choice = 'ROCK';
                 return choice;
             }
             // else if x is 1 set choice to Paper
             // return choice
             else if (x === 1) {
-                choice = "paper";
+                choice = 'PAPER';
                 return choice;
             }
             // else if x is 2 set choice is scissors
             // return choice
             else if (x === 2) {
-                choice = "Scissor";
+                choice = 'SCISSOR';
                 return choice;
             }
         }
-        console.log(ComputerChoice());
+        
         /*
         step 3:
         Will create a 2nd function named getHumanchoice which will
@@ -73,16 +73,18 @@
             //use prompt method to ask user input.
             //store user input to humChoice
             humChoice = prompt(message);
+            humChoice = humChoice.toUpperCase();
             //print humChoice cnontents to console if valid ans
-            if(humChoice === "Rock" || humChoice === "Paper"
-                || humChoice === "Scissor"){
-                    console.log(humChoice);
+            if (humChoice === 'ROCK' || humChoice === 'PAPER'
+                || humChoice === 'SCISSOR') {
+                console.log(humChoice);
+                return humChoice;
             }
-            else{
+            else {
                 console.log("Invalid Choice");
             }
         }
-        getHumanChoice();
+        
         /*
         step 4:
         create 2 variables one called humanScore and the other
@@ -90,11 +92,53 @@
         functions so that it may be used throughout code.
         Initialize both variables to 0
         */
-       let humanScore = 0;
-       let computerScore = 0;
-       /*
-        step 5:
+        let humanScore = 0;
+        let computerScore = 0;
+        /*
+         step 5:
+         We will create a new function called playRound. This 
+         function will compare the human choice and the computer
+         choice. It will state who wins the round. Based on
+         who won the score variable will increase.
+         */
+        //create function called playRound will have paramters
+        //of humanChoice and computerChoice
+        function playRound(humanChoice, ComputerChoice) {
+            if (humanChoice === ComputerChoice) {
+                console.log("It's a tie");
+            }
+            else if (humanChoice === "ROCK" && ComputerChoice === "PAPER" ||
+                humanChoice === "PAPER" && ComputerChoice === "SCISSOR" ||
+                humanChoice === "SCISSOR" && ComputerChoice === "ROCK") {
+                console.log("Sorry you lost");
+                computerScore++;
+                console.log(`computer has a score of : ${computerScore} `);
+            }
+            else if (humanChoice === "ROCK" && ComputerChoice === "SCISSOR" ||
+                humanChoice === "SCISSOR" && ComputerChoice === "PAPER" ||
+                humanChoice === "PAPER" && ComputerChoice === "ROCK") {
+                console.log("Congrats you won the round");
+                humanScore++;
+                console.log(`you have a score of : ${humanScore} `);
+            }
+
+        }
         
-        */
+        for(let i = 1; i <= 5; i++){
+            const humanSelection = getHumanChoice();
+            const computerSelection = getcomputerChoice();
+            playRound(humanSelection, computerSelection);
+            console.log(computerSelection);
+        }
+        if(humanScore > computerScore){
+            console.log(`Congrats you beat the computer! with
+            a score of: ${humanScore} to the computer's score
+            of: ${computerScore}`);
+        }
+        else if(computerScore > humanScore){
+            console.log(`You lost better luck next time! with
+            a score of: ${computerScore} to your score of: 
+            ${humanScore}`);
+        }
     </script>
-</body>
+</body> 
